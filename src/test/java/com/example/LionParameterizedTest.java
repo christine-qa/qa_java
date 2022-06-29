@@ -5,9 +5,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-
-import java.util.List;
 
 @RunWith(Parameterized.class)
 public class LionParameterizedTest {
@@ -23,14 +20,13 @@ public class LionParameterizedTest {
         this.expected = expected;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name="lionTestData:{0} {1}")
     public static Object[][] getTestData() {
         return new Object[][] {
                 {"Самец", true},
                 {"Самка", false},
         };
     }
-
 
     @Test
     public void doesHaveManeTest() throws Exception {
